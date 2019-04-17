@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import persistencia.Persona;
+import es.avalon.miproyecto.persistencia2.Persona;
 
 @WebServlet("/ServletJDBCEditar")
 public class ServletJDBCEditar extends HttpServlet {
@@ -24,14 +24,22 @@ public class ServletJDBCEditar extends HttpServlet {
 			throws ServletException, IOException {
 
 		String nombre = request.getParameter("nombre");
-		Persona p = Persona.muestraUnElemento(nombre);
+		Persona p;
+		try {
+			p = Persona.buscarUno(nombre);
 		PrintWriter pw = response.getWriter();
 		pw.println("<html><body><form action='ServletJDBCSalvar' method='post'>");
-		pw.println("<p>Modelo:<input type='text' name='nombre' value='" + p.getNombre() + "'/></p>");
+		pw.println("<p>Nombre:<input type='text' name='nombre' value='" + p.getNombre() + "'/></p>");
 		pw.println("<input type='hidden' name='nombreOriginal' value='" + p.getNombre() + "'/>");
-		pw.println("<p>Marca:<input type='text' name='apellido' value='" + p.getApellido() + "'/></p>");
-		pw.println("<p>Precio:<input type='text' name='edad' value='" + p.getEdad() + "'/></p>");
+		pw.println("<p>Apellido:<input type='text' name='apellido' value='" + p.getApellido() + "'/></p>");
+		pw.println("<p>Edad:<input type='text' name='edad' value='" + p.getEdad() + "'/></p>");
 		pw.println("<input type='submit' value='salvar'/> </form></body></html>");
+		} 
+		catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
 
 }

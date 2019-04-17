@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import persistencia.Persona;
+import es.avalon.miproyecto.persistencia2.Persona;
 
 @WebServlet("/ServletJDBCInsertar")
 public class ServletJDBCInsertar extends HttpServlet {

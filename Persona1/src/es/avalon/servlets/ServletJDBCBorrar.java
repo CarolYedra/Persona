@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import persistencia.Persona;
+import es.avalon.miproyecto.persistencia2.Persona;
 
 @WebServlet("/ServletJDBCBorrar")
 public class ServletJDBCBorrar extends HttpServlet {
@@ -23,12 +23,11 @@ public class ServletJDBCBorrar extends HttpServlet {
 			throws ServletException, IOException {
 
 		String nombre = request.getParameter("nombre");
-		persistencia.Persona p = new Persona(nombre);
+		Persona p = new Persona(nombre);
 		try {
-			p.borrar();
+			p.borrar(nombre);
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+					e.printStackTrace();
 		}
 		response.sendRedirect("ServletJDBC1");
 

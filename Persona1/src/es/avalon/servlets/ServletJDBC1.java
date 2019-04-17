@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import persistencia.Persona;
+import es.avalon.miproyecto.persistencia2.Persona;
+
+
 
 @WebServlet("/ServletJDBC1")
 public class ServletJDBC1 extends HttpServlet {

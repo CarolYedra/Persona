@@ -3,7 +3,7 @@
 	<name>Persona1</name>
 	<comment></comment>
 	<projects>
-		<project>persistencia</project>
+		<project>persistencia2</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

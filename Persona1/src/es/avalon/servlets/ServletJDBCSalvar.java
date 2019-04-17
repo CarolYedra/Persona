@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import persistencia.Persona;
+import es.avalon.miproyecto.persistencia2.Persona;
 
 @WebServlet("/ServletJDBCSalvar")
 public class ServletJDBCSalvar extends HttpServlet {
@@ -16,11 +16,11 @@ public class ServletJDBCSalvar extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		Persona p = Persona.muestraUnElemento(request.getParameter("nombreOriginal"));
+		
+	
 		try {
-			p.borrar();
+			Persona.borrar(request.getParameter("nombreOriginal"));
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		Persona p1 = new Persona(request.getParameter("nombre"), request.getParameter("apellido"),
